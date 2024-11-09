@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emisión de Factura Electrónica</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1f23;
+            color: #ffffff;
+        }
+
+        .header {
+            background-color: #242729;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .back-button {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .warning-banner {
+            background-color: #654321;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .company-info {
+            display: flex;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            background-color: #ff69b4;
+            border-radius: 12px;
+            margin-right: 20px;
+        }
+
+        .company-details {
+            flex: 1;
+        }
+
+        .invoice-number {
+            border: 1px solid #333;
+            padding: 10px;
+            float: right;
+            text-align: right;
+        }
+
+        .form-container {
+            padding: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            background-color: #242729;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        .add-item-box {
+            border: 2px dashed #333;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .summary {
+            text-align: right;
+            margin: 20px 0;
+        }
+
+        .notes-section {
+            border: 1px solid #333;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: right;
+            border-top: 1px solid #333;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .btn-primary {
+            background-color: #0078d4;
+            color: white;
+        }
+
+        .amount-text {
+            color: #666;
+            padding: 10px;
+            background-color: #242729;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="http://127.0.0.1:5500/index.html#" class="back-button">← Emitir</a>
+        <span>Factura</span>
+    </header>
+
+    <div class="warning-banner">
+        DOCUMENTO SIN VALOR: Esta empresa está en modo DESARROLLO (modo de pruebas)
+    </div>
+
+    <div class="company-info">
+        <div class="company-logo">
+            <img src="./Emisión de Factura Electrónica_files/test-icon.png" alt="Logo Test">
+        </div>
+        <div class="company-details">
+            <h2>EMPRESA DE PRUEBAS</h2>
+            <p>NOMBRE LEGAL DE LA EMPRESA SAC</p>
+            <p>Dirección fiscal de la empresa - Distrito - Provincia</p>
+            <small>Por ejemplo WhatsApp 987 654 321</small>
+        </div>
+        <div class="invoice-number">
+            <div>R.U.C. N° 20000000000</div>
+            <div>FACTURA ELECTRÓNICA</div>
+            <div>F001 - 00001502</div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="form-row">
+            <div class="form-group">
+                <input type="text" placeholder="Cliente">
+            </div>
+            <div class="form-group">
+                <select>
+                    <option>RUC</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Número de Documento">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <input type="text" placeholder="Dirección (opcional)">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <input type="date" value="2024-11-09">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Vencimiento (opcional)">
+            </div>
+        </div>
+
+        <div class="add-item-box">
+            + Agregar un ítem
+        </div>
+
+        <div class="summary">
+            <div>IGV: 0.00</div>
+            <div>Importe Total: 0.00</div>
+            <div>
+                <input type="checkbox"> Aplica Retención del IGV
+            </div>
+            <div>
+                <select>
+                    <option>Contado</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="amount-text">
+            IMPORTE EN LETRAS: CERO CON 00/100 SOLES
+        </div>
+
+        <div class="notes-section">
+            + Agregar Observaciones o Notas
+        </div>
+
+        <div class="notes-section">
+            + Agregar Documentos Relacionados
+        </div>
+
+        <div class="notes-section">
+            + Agregar Guías Relacionadas
+        </div>
+    </div>
+
+    <div class="footer">
+        <small>Este es un mensaje al pie de página. La mayoría pone "Gracias por su compra!", pero puedes poner cualquier mensaje.</small>
+        <button class="btn btn-primary">Emitir Factura</button>
+    </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
